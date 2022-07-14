@@ -365,4 +365,4 @@ const avatarRecenterComponent = {
     })
   },
 }
-//export {avatarMoveComponent, swapCamComponent, avatarRecenterComponent}
+export {avatarMoveComponent, swapCamComponent, avatarRecenterComponent}

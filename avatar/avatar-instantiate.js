@@ -62,4 +62,4 @@ async function receiveMessage(event) {
   // Hide the RPM iframe
   document.getElementById('rpmContainer').style.display = 'none'
 }
-//export {receiveMessage}
+export {receiveMessage}

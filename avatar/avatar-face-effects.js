@@ -153,4 +153,4 @@ const avatarFaceComponent = () => {
     'gltf-morph': gltfMorphComponent,
   }
 }
-//export {avatarFaceComponent}
+export {avatarFaceComponent}

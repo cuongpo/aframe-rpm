@@ -4,6 +4,7 @@
 // ////////////////////////////
 const getGender = async (glbFile) => {
   let genderAnim
+  console.log(glbFile)
   const jsonUrl = glbFile.replace('.glb', '.json')
   const response = await fetch(jsonUrl)
   const data = await response.json()

@@ -5,8 +5,8 @@
 const getGender = async (glbFile) => {
   let genderAnim
   console.log("123")
-  console.log(glbFile)
   const jsonUrl = glbFile.toString().replace('.glb', '.json')
+  console.log(jsonUrl)
   const response = await fetch(jsonUrl)
   const data = await response.json()
   // Masculine models are larger in size so they use a larger animation rig

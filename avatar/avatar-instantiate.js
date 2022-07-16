@@ -4,11 +4,9 @@
 // ////////////////////////////
 const getGender = async (glbFile) => {
   let genderAnim
-  console.log("123")
   const jsonUrl = glbFile.toString().replace('.glb', '.json')
   const response = await fetch(jsonUrl)
   const data = await response.json()
-    console.log(data)
   // Masculine models are larger in size so they use a larger animation rig
   if (data.outfitGender === 'masculine') {
     genderAnim = 'animated-m'
@@ -17,6 +15,7 @@ const getGender = async (glbFile) => {
   }
   return genderAnim
 }
+console.log(genderAnim)
 async function receiveMessage(event) {
   const genderAnim = await getGender(event.data)
   // Filter out events that are not GLB URL strings from RPM

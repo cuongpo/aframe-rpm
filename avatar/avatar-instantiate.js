@@ -15,7 +15,6 @@ const getGender = async (glbFile) => {
   }
   return genderAnim
 }
-console.log(genderAnim)
 async function receiveMessage(event) {
   const genderAnim = await getGender(event.data)
   // Filter out events that are not GLB URL strings from RPM

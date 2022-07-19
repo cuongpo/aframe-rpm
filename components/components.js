@@ -3,7 +3,7 @@
 // ////////////////////////////
 const avatarMoveComponent = {
   schema: {
-    speed: {type: 'number', default: 0.007},  // base movement speed
+    speed: {type: 'number', default: 0.012},  // base movement speed
   },
   init() {
     this.camera = document.getElementById('camera')
@@ -94,6 +94,7 @@ const avatarMoveComponent = {
   },
   update() {
     this.speed = this.data.speed
+    console.log(this.data.speed)
   },
   tick(time, timeDelta) {
     const sensitivity = 0.3

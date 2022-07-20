@@ -200,11 +200,11 @@ iframe {
         <img id="background" src="./assets/background3.jpeg">
         <audio id="audio" src="./assets/audio.mp3"></audio>
   </a-assets>
-  <a-camera
+  <a-gltf-model src="#tree" scale="3 3 3"></a-gltf-model>
+ <a-camera
     id="camera"
     position="0 4 4"
-    look-controls
-    >
+    look-controls="enabled: false">
        <a-plane 
         id="faceEffectsBackground"
         visible="false"
@@ -214,8 +214,6 @@ iframe {
         width="6" 
         height="3" 
        ></a-plane>
-       <a-entity id="animated-f" gltf-model="#animated-f-glb"> </a-entity>
-      <a-entity id="animated-m" gltf-model="#animated-m-glb"></a-entity>
   </a-camera>
   <a-entity
     id="light"
@@ -223,11 +221,13 @@ iframe {
     shadow>
   </a-entity>
   <a-light type="ambient" intensity="0.8"></a-light>
-
-
-      <a-sound src="#audio" autoplay="true" position="0 2 5"></a-sound>
-      <a-gltf-model src="#tree" scale="3 3 3"></a-gltf-model>
-      <a-sky src=#background></a-sky>
-
-</a-scene>
+  <a-entity id="animated-f" gltf-model="#animated-f-glb"></a-entity>
+  <a-entity id="animated-m" gltf-model="#animated-m-glb"></a-entity>
+  <a-box
+    id="ground"
+    scale="1000 2 1000"
+    position="0 -1 0"
+    material="shader: shadow; transparent: true; opacity: 0.45"
+    shadow>
+  </a-box>
 </body>

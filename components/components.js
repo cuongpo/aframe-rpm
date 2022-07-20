@@ -145,39 +145,49 @@ const avatarMoveComponent = {
           }
           // diagonal controls
           if (this.fwd && this.left) {
+            this.diagonal = true;
             this.forward = -Math.min(Math.max(-1, -1), 1)
             this.side = -Math.min(Math.max(-1, -1), 1)
+            console.log(this.speed)
           }
           if (this.fwd && this.right) {
+             this.diagonal = true;
             this.forward = -Math.min(Math.max(-1, -1), 1)
             this.side = -Math.min(Math.max(-1, 1), 1)
           }
           if (this.back && this.left) {
+             this.diagonal = true;
             this.forward = -Math.min(Math.max(-1, 1), 1)
             this.side = -Math.min(Math.max(-1, -1), 1)
           }
           if (this.back && this.right) {
+             this.diagonal = true;
             this.forward = -Math.min(Math.max(-1, 1), 1)
             this.side = -Math.min(Math.max(-1, 1), 1)
           }
           // cardinal controls
           if (this.fwd && !this.left && !this.right) {
+            this.diagonal = false;
             this.forward = -Math.min(Math.max(-1, -1), 1)
             this.side = 0
           }
           if (this.back && !this.left && !this.right) {
+            this.diagonal = false;
             this.forward = -Math.min(Math.max(-1, 1), 1)
             this.side = 0
           }
           if (this.left && !this.fwd && !this.back) {
+            this.diagonal = false;
             this.forward = 0
             this.side = -Math.min(Math.max(-1, -1), 1)
           }
           if (this.right && !this.fwd && !this.back) {
+            this.diagonal = false;
             this.forward = 0
             this.side = -Math.min(Math.max(-1, 1), 1)
           }
           this.isMoving = true
+         
           break
         default:
           // touch input
@@ -232,8 +242,13 @@ const avatarMoveComponent = {
       const camY = this.camera.object3D.rotation.y  // get y rot of camera
       this.joystickRot = Math.atan2(this.forward, this.side)
       this.joystickRot -= camY
+      if (this.diagonal) {
+        this.avatar.position.z -= this.speed * Math.sin(this.joystickRot) * timeDelta*1.3
+      this.avatar.position.x -= this.speed * Math.cos(this.joystickRot) * timeDelta*1.3
+      } else {
       this.avatar.position.z -= this.speed * Math.sin(this.joystickRot) * timeDelta
       this.avatar.position.x -= this.speed * Math.cos(this.joystickRot) * timeDelta
+      }
       this.avatar.rotation.y = -this.joystickRot - Math.PI / 2
       // Animations to call include RUNNING, WALKING, IDLE, VICTORY, DEFEAT
       this.el.setAttribute('rig-animation', {

@@ -3,6 +3,8 @@
 <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
+<script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+
 
 <script type="module">
   import * as THREE from "https://cdn.skypack.dev/three@0.133.1";
@@ -184,7 +186,7 @@ iframe {
 <img id="swap-cam-btn" src="./assets/icons/camera-flip.svg">
 <!-- Add the recenter-on-load & swap-cam components to the scene so it has an effect -->
 <a-scene
-  responsive-immersive
+  inspector-plugin-recast
   swap-camera
   landing-page
   xrextras-gesture-detector
